@@ -19,7 +19,13 @@ const config = {
     plugins: [
       'transform-decorators-legacy',
       'transform-class-properties',
-      'transform-object-rest-spread'
+      'transform-object-rest-spread',
+      ['transform-runtime', {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": 'babel-runtime'
+      }]
     ]
   },
   defineConstants: {
@@ -79,6 +85,12 @@ const config = {
         }
       }
     }
+  },
+  copy: {
+    patterns: [
+      { from: "src/custom-tab-bar/", to: "dist/custom-tab-bar/" }
+    ],
+    options: {}
   }
 }
 

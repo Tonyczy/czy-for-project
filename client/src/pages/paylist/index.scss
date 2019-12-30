@@ -1,0 +1,37 @@
+.header {
+  text-align: center;
+  padding: 20px;
+  color: #818181;
+}
+
+.listitem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 30px;
+  border-bottom: 1px solid #b1b1b1;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #777777;
+
+    &_title {
+
+    }
+
+    &_value {
+
+    }
+  }
+
+  &_right {
+    color: #777777;
+  }
+}

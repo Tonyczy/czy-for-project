@@ -1,0 +1,25 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: #4c4c4c;
+  display: flex;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tab-bar-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-bar-item:active {
+  opacity: 0.6;
+}
+
+.tab-bar-item-content {
+  font-size: 16px;
+}

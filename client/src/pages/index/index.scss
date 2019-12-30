@@ -1,0 +1,68 @@
+.index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  min-height: 100vh;
+}
+
+$accent-bg: #4c4c4c;
+
+.databoard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  background: $accent-bg;
+  margin: 20px 0;
+  border-radius: 18px;
+  color: #fff;
+  width: 650px;
+
+  &_title {
+    font-size: 36px;
+  }
+
+  &_amount {
+    font-size: 120px;
+    margin: 40px 0;
+  }
+
+  &_payclass-list {
+    font-size: 26px;
+    text-align: right;
+    width: 100%;
+    margin-right: 60px;
+
+    &_text {
+      padding: 20px;
+    }
+  }
+}
+
+.pay {
+  margin: 40px 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background: $accent-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 34px;
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.payinput {
+  margin-bottom: 20px;
+  color: #a0a0a0;
+  font-size: 30px;
+  border: 1px solid #b1b1b1;
+  padding: 15px 20px;
+  border-radius: 10px;
+}

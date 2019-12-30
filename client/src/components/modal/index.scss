@@ -1,0 +1,45 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color: #666, $alpha: 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_content {
+  width: 500px;
+  padding: 30px;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_item {
+    font-size: 28px;
+    padding: 15px 40px;
+    border-radius: 60px;
+    margin-right: 50px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &_cancel {
+    background: #cecece;
+    color: #6f6f6f;
+  }
+
+  &_ok {
+    background: #abb4ee;
+    color: #6f6f6f;
+  }
+}

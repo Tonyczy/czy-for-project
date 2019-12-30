@@ -11,15 +11,32 @@ import './app.scss'
 
 class App extends Component {
 
+  // eslint-disable-next-line react/sort-comp
   config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/my/index',
+      'pages/paylist/index'
     ],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
+      navigationBarBackgroundColor: '#cecece',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      custom: true,
+      color: "#919191",
+      selectedColor: "#000",
+      backgroundColor: "#fff",
+      borderStyle: 'white',
+      list: [{
+        pagePath: 'pages/index/index',
+        text: '首页'
+      }, {
+        pagePath: 'pages/my/index',
+        text: '我的'
+      }]
     },
     cloud: true
   }
