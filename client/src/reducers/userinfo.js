@@ -7,7 +7,10 @@ const INITIAL_STATE = {
   classid: '',
   openid: '',
   userid: '',
-  admin: false
+  admin: false,
+  personalPay: [],
+  classPay: [],
+  personalPayAmount: 0
 }
 
 export default function userinfo (state = INITIAL_STATE, action) {

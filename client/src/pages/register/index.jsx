@@ -63,7 +63,6 @@ class Register extends Component {
       data: {
         name,
         stuno,
-        classname: classList[classSelectedIndex].classname,
         classid: classList[classSelectedIndex].classid,
         openid: this.props.userinfo.openid,
         admin: false

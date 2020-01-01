@@ -8,9 +8,9 @@ import {
   PAYLIST_CLASS_OUT
 } from '../constant'
 import { formatDate } from '../utils'
-import { updateUserInfo } from '../../actions/userinfo'
 
-export default class PayList extends Component {
+@connect(({ userinfo }) => ({ userinfo }), () => ({}))
+class PayList extends Component {
 
   // eslint-disable-next-line react/sort-comp
   config = {
@@ -19,30 +19,7 @@ export default class PayList extends Component {
 
   state = {
     type: -1,
-    list: [
-      {
-        id: 0,
-        title: '购买xx',
-        value: 100,
-        date: 1577694296051
-      },
-      {
-        id: 1,
-        title: '购买xx',
-        value: 100,
-        date: 1577694296051
-      },
-      {
-        id: 2,
-        title: '购买xx',
-        value: 100,
-        date: 1577694296051
-      }
-    ]
-  }
-
-  async getPayList(type) {
-    const a = type
+    list: []
   }
 
   renderList = () => {
@@ -60,40 +37,62 @@ export default class PayList extends Component {
     return lists
   }
 
-  componentWillMount () { }
-
   async componentDidMount () {
     const params = this.$router.params
     const type = params.type
+    const { personalPay, openid, classid } = this.props.userinfo
+    let classPay = []
+    if ([PAYLIST_CLASS_OUT, PAYLIST_PERSONAL_OUT].includes(Number(type))) {
+      Taro.showToast({ icon: 'loading', mask: true })
+      const db = Taro.cloud.database()
+      const classPayCollection = db.collection('classPay')
+
+      const classPayResCount = await classPayCollection.where({ classid }).count()
+      const tasks = []
+      const MAX_LIMIT = 100
+      const classPayRequestTime = Math.ceil(classPayResCount.total / 100)
+      for (let i = 0; i < classPayRequestTime; i++) {
+        const promise = classPayCollection.where({ classid }).skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
+        tasks.push(promise)
+      }
+      classPay = (await Promise.all(tasks)).reduce((acc, cur) => {
+        return acc.concat(cur.data)
+      }, [])
+      Taro.hideToast()
+    }
+
     if (type) {
       this.setState({ type })
       let navigationBarTitle
+      let payList
       switch (Number(type)) {
         case PAYLIST_CLASS_OUT:
           navigationBarTitle = '班级支出历史'
+          payList = classPay
           break;
         case PAYLIST_PERSONAL_IN:
           navigationBarTitle = '个人缴纳历史'
+          payList = personalPay
           break
         case PAYLIST_PERSONAL_OUT:
           navigationBarTitle = '个人支出历史'
+          payList = classPay.filter(item => {
+            return item._openid == openid
+          })
           break
         default:
           navigationBarTitle = ''
+          payList = []
           break;
       }
       Taro.setNavigationBarTitle({
         title: navigationBarTitle
       })
+      this.setState({
+        list: payList
+      })
     }
-    await this.getPayList(type)
   }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
 
   render () {
     const { list, type } = this.state
@@ -106,3 +105,5 @@ export default class PayList extends Component {
     )
   }
 }
+
+export default PayList
