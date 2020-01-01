@@ -1,10 +1,17 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Input } from '@tarojs/components'
+import { connect } from '@tarojs/redux'
 import './index.scss'
 import { PAYLIST_CLASS_OUT } from '../constant'
 import Modal from '../../components/modal'
+import { getOpenid } from '../../actions/userinfo'
 
-export default class Index extends Component {
+@connect(({ userinfo }) => ({ userinfo }), (dispatch) => ({
+  dispatchGetOpenid () {
+    dispatch(getOpenid())
+  }
+}))
+class Index extends Component {
 
   // eslint-disable-next-line react/sort-comp
   config = {
@@ -22,11 +29,9 @@ export default class Index extends Component {
     Taro.navigateTo({ url: `/pages/paylist/index?type=${PAYLIST_CLASS_OUT}` })
   }
 
-  componentWillMount () { }
-
-  componentDidMount () {}
-
-  componentWillUnmount () { }
+  componentDidMount () {
+    this.props.dispatchGetOpenid()
+  }
 
   componentDidShow () {
     // 为之后需要增加 tabbar 状态保留
@@ -36,8 +41,6 @@ export default class Index extends Component {
       })
     }
   }
-
-  componentDidHide () { }
 
   onPayInClick = () => {
     this.modalPayIn.show()
@@ -72,3 +75,5 @@ export default class Index extends Component {
     )
   }
 }
+
+export default Index

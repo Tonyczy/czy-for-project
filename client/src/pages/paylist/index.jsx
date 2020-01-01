@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
+import { connect } from '@tarojs/redux'
 import './index.scss'
 import {
   PAYLIST_PERSONAL_IN,
@@ -7,6 +8,7 @@ import {
   PAYLIST_CLASS_OUT
 } from '../constant'
 import { formatDate } from '../utils'
+import { updateUserInfo } from '../../actions/userinfo'
 
 export default class PayList extends Component {
 

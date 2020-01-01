@@ -36,10 +36,18 @@
   &_cancel {
     background: #cecece;
     color: #6f6f6f;
+
+    &:active {
+      opacity: 0.6;
+    }
   }
 
   &_ok {
     background: #abb4ee;
     color: #6f6f6f;
+
+    &:active {
+      opacity: 0.6;
+    }
   }
 }

@@ -26,7 +26,7 @@ export default class Modal extends Component {
   }
 
   onOKClick = () => {
-    this.hide()
+    // this.hide()
     if (this.props.onOK) {
       this.props.onOK()
     }
@@ -34,6 +34,7 @@ export default class Modal extends Component {
 
   render () {
     const { show } = this.state
+    const { notShowCancel } = this.props
 
     return (
       <View className='modal_wrapper'>
@@ -41,7 +42,7 @@ export default class Modal extends Component {
           <View className='modal_content'>
             { this.props.children }
             <View className='actions'>
-              <View className='actions_cancel actions_item' onClick={this.onCancelClick}>取消</View>
+              { !notShowCancel && <View className='actions_cancel actions_item' onClick={this.onCancelClick}>取消</View> }
               <View className='actions_ok actions_item' onClick={this.onOKClick}>确认</View>
             </View>
           </View>
