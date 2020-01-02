@@ -17,7 +17,7 @@ yarn run build:weapp
 ### 完善信息
 如果用户没有在系统中注册过,
 用户需要填写姓名、学号以及选择班级来注册  
-<img src="./readme_assets/p0.png" style="width: 50%"/>
+<img src="./readme_assets/p0.png" width="300"/>
 
 ### 首页
 - 用户缴纳总金额的显示
@@ -25,18 +25,18 @@ yarn run build:weapp
 - 缴纳
 - 支付  
 
-<img src="./readme_assets/p1.png" style="width: 50%"/>
+<img src="./readme_assets/p1.png" width="300"/>
 
 #### 缴纳
 缴纳的金额会反馈到 **总金额**  
-<img src="./readme_assets/p2.png" style="width: 50%"/>
+<img src="./readme_assets/p2.png" width="300"/>
 
 #### 支出
 支出需要权限, 用户如果没有权限将会提示 “支付功能需要权限”, 支出会反馈到 **班级支出历史** 和我的页面中的 **个人支出历史**  
-<img src="./readme_assets/p3.png" style="width: 50%"/>
+<img src="./readme_assets/p3.png" width="300"/>
 
 #### 班级支出历史
-<img src="./readme_assets/p4.png" style="width: 50%"/>
+<img src="./readme_assets/p4.png" width="300"/>
 
 ### 我的
 - 头像
@@ -45,31 +45,31 @@ yarn run build:weapp
 - 支出历史
 - 权限
 
-<img src="./readme_assets/p5.png" style="width: 50%"/>
+<img src="./readme_assets/p5.png" width="300"/>
 
 #### 头像
 头像是用户的微信头像
 #### 用户信息
 用户信息是用户注册时填写的信息
 #### 缴纳历史
-<img src="./readme_assets/p6.png" style="width: 50%"/>
+<img src="./readme_assets/p6.png" width="300"/>
 
 #### 支付历史
-<img src="./readme_assets/p7.png" style="width: 50%"/>
+<img src="./readme_assets/p7.png" width="300"/>
 
 #### 权限
 用于支出的权限解锁, 如果用户已经拥有权限将会提示 “您已经拥有权限”, 关于邀请码的生成和来源, 下面会讲  
-<img src="./readme_assets/p8.png" style="width: 50%"/>
+<img src="./readme_assets/p8.png" width="300"/>
 
 ## 数据库
 点击开发者工具中的云开发  
-<img src="./readme_assets/p9.png" style="width: 95%"/>
+<img src="./readme_assets/p9.png" width="400"/>
 
 选择其中的数据库  
-<img src="./readme_assets/p10.png" style="width: 65%"/>
+<img src="./readme_assets/p10.png" width="300"/>
 
 共有5张表  
-<img src="./readme_assets/p11.png" style="width: 40%"/>
+<img src="./readme_assets/p11.png" width="300"/>
 
 ### classPay
 其中记录的是所有班级支出历史, 不能手动操作
